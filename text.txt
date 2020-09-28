@@ -1,0 +1,14 @@
+f2py -c nom.f90 -m nom --fcompiler=gnu95 --compiler=mingw32 -L. -lliblapack
+
+gfortran -o example example.f95/90 -L. -lliblapack
+
+or 
+
+gfortran -o example example.f95/90 -L. liblapack.dll
+
+gfortran -o LU LU.f90 
+
+
+gfortran -c <module1>.f90 <module2>.f90
+gfortran -o main.f90 module1.o
+
