@@ -2,7 +2,7 @@
 
 **Files:**
 
-- *fem.py* : It is the Python input file where you have to specified the input parameters such as coordinates, element connectivity, ..., and where you will have the ouput (displacment ,strain, stress and graph)
+- *fem.py* : It is the Python input file where you have to specified the input parameters such as coordinates, element connectivity, ..., and where you will have the ouput (displacement ,strain, stress and graph)
 
 - *libmod.dll* : It is the library that comes with the *module.pyd* file
 
@@ -26,5 +26,5 @@
 
 **Limitation:**
 
-- ***Cannot impose diplacments***
+- ***Cannot impose diplacements***
 - ***Cannot impose distributed forces***
