@@ -12,17 +12,17 @@ module mod
     integer(dp), dimension(1:4) :: scat                       ! Vector location where the matrix K is to scatter
     integer(dp), dimension(:), intent(in) :: free             ! Vector of free dof
     real(dp), dimension(:,:), intent(in) :: node              ! Node: Matrix of node coordinates (x,y)
-    real(dp), dimension(:,:), intent(in) :: conn              ! Conn: Matrix of element connectivity (1st node, 2nd node)
+    integer(dp), dimension(:,:), intent(in) :: conn              ! Conn: Matrix of element connectivity (1st node, 2nd node)
     real(dp), dimension(:,:), allocatable :: K, Kfree         ! Global Stiffness Matrix, Sub Stiffness Matrix of free dof 
-    real(dp), dimension(:), allocatable, intent(inout) :: d   ! Displacment vector, Sub Displacment Vector of free dof
-    real(dp), dimension(:), allocatable, intent(inout) :: stress
-    real(dp), dimension(:), allocatable, intent(inout) :: strain
+    real(dp), dimension(size(node,1)*2), intent(out) :: d     ! Displacment vector, Sub Displacment Vector of free dof
+    real(dp), dimension(size(conn,1)), intent(out) :: stress
+    real(dp), dimension(size(conn,1)), intent(out) :: strain
     real(dp), dimension(:), allocatable :: dfree
     real(dp), dimension(:), intent(inout) :: f                ! Force vector, Sub Force Vector of free dof
     real(dp), dimension(:), allocatable :: ffree              ! Force vector, Sub Force Vector of free dof
     real(dp), dimension(1:4) :: v,B                           ! Vector of cosinus
     real(dp), dimension(1:4,1:4) :: T,ke                      ! Transformation Matrix, Element Stiffness Matrix
-    real(dp) :: P,L,x1,x2,y1,y2,c,s,c2,s2,cs    ! A: Area, E: Young's Modulus, P: Force Magnitude, Length of an element,cosinus,sinus (and square), strain and stress of each element
+    real(dp) :: L,x1,x2,y1,y2,c,s,c2,s2,cs                    ! A: Area, E: Young's Modulus, P: Force Magnitude, Length of an element,cosinus,sinus (and square), strain and stress of each element
     real(dp),intent(in) :: A,E
 
     
@@ -30,9 +30,6 @@ module mod
     m=size(conn,1)
     ndof=2*n
     allocate(K(1:ndof,1:ndof))                                !Allocation of size global Stiffness Matrix
-    allocate(d(1:ndof))                                       !Allocation of size global displacment vector
-    allocate(strain(1:m))
-    allocate(stress(1:m))
 
     !---initialization
     K=0.0
@@ -117,10 +114,38 @@ module mod
    enddo
 
 
+
+
+!-----------------PRINT-----------
+
+    print*, "N o d a l  D i s p l a c m e n t s"
+    print*, "NID        X-DISP        Y-DISP"
+
+    do i=1,n
+        print "(i3,es17.3,es14.3)",i,d(2*i-1),d(2*i)
+    enddo
+
+    print*, "E x t e r n a l  F o r c e s"
+    print*, "NID        X-FORCE       Y-FORCE"
+
+    do i=1,n
+        print "(i3,es17.3,es14.3)",i,f(2*i-1),f(2*i)
+    enddo
+
+    print*, "E l e m e n t   S t r e s s"
+    print*, "EID         STRAIN       STRESS"
+
+    do i=1,m
+        print "(i3,es17.3,es14.3)",i,strain(i),stress(i)
+    enddo
+
+!---------------END PRINT
+
+
 end subroutine solver
 
 subroutine linear(AA,bb,xx)
-        implicit none
+        
         integer, parameter :: dp = selected_real_kind(15, 307)
         integer :: ii,jj,kk,nn
         real(dp), dimension(:,:),intent(in) :: AA
