@@ -12,7 +12,7 @@
 
 **Manual:**
 
-- Download only the *fem.py*, *libmod.dll* and *module.pyd*. 
+- Download only the *fem.py*, *libmod.dll* and *module.pyd* files and ***not*** the *solver.f90* file (that is contained is the *module.pyd*). 
 
 - Modify the input parameters in the *fem.py* file as you want
 
