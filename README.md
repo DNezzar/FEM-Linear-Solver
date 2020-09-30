@@ -20,7 +20,7 @@
 
 **Requierement:**
 
-- Python3 (any version) but it has to be 64 bit
+- Python3 (any version) but it has to be ***64 bit***
 
 - Numpy and Matplotlib have to be installed
 
