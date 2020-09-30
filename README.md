@@ -1,6 +1,6 @@
 # FEM-Linear-Solver
 
-**Files:**
+## Files:
 
 - *fem.py* : It is the Python input file where you have to specified the input parameters such as coordinates, element connectivity, ..., and where you will have the ouput (displacement ,strain, stress and graph)
 
@@ -10,7 +10,7 @@
 
 - *solver.f90* : Fortran file with the main program 
 
-**Manual:**
+## Manual:
 
 - Download only the *fem.py*, *libmod.dll* and *module.pyd* files and ***not*** the *solver.f90* file (that is contained is the *module.pyd*). 
 
@@ -18,13 +18,13 @@
 
 - In command console (in files directory), run the *fem.py* like: ```$ python fem.py```
 
-**Requierement:**
+## Requierement:
 
 - Python3 (any version) but it has to be ***64 bit***
 
 - Numpy and Matplotlib have to be installed
 
-**Limitation:**
+## Limitation:
 
 - ***Cannot impose diplacements***
 - ***Cannot impose distributed forces***
