@@ -18,13 +18,13 @@
 
 - In command console (in files directory), run the *fem.py* like: ```$ python fem.py```
 
-## Requierement:
+## Requierements:
 
 - Python3 (any version) but it has to be ***64 bit***
 
 - Numpy and Matplotlib have to be installed
 
-## Limitation:
+## Limitations:
 
 - ***Cannot impose diplacements***
 - ***Cannot impose distributed forces***
