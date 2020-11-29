@@ -1,5 +1,8 @@
 # FEM-Linear-Solver
 
+![] (code.png)
+
+
 ## Files:
 
 - *fem.py* : It is the Python input file where you have to specified the input parameters such as coordinates, element connectivity, ..., and where you will have the ouput (displacement ,strain, stress and graph)
