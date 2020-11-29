@@ -1,7 +1,7 @@
 # FEM-Linear-Solver
 
 ![](https://github.com/DNezzar/FEM-Linear-Solver/blob/master/code.png)
-![](https://github.com/DNezzar/FEM-Linear-Solver/blob/master/example.png)
+![](https://github.com/DNezzar/FEM-Linear-Solver/blob/master/example.png) ![](https://github.com/DNezzar/FEM-Linear-Solver/blob/master/results.png)
 
 ## Files:
 
