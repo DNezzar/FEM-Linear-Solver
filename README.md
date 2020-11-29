@@ -1,6 +1,6 @@
 # FEM-Linear-Solver
 
-![] (filename code.png)
+![] (FEM-Linear-Solver/code.png)
 
 
 ## Files:
